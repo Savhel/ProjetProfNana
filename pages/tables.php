@@ -14,42 +14,43 @@
             </div>
             <div class="card-body px-0 pb-2">
             <div class="d-flex">
+              
               <button type="button" class="btn btn-primary mx-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Rechercher
               </button>
 
             </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Les dates </h1>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-      </div>
-      <div class="modal-body">
-      <form action="" method="post">
-          <div class="mb-3">
-            <label for="dateDebut" class="form-label">Date de début :</label>
-            <input type="date" id="dateDebut" name="dateDebut" class="form-control" required>
-          </div>
-          
-          <div class="mb-3">
-            <label for="dateFin" class="form-label">Date de fin :</label>
-            <input type="date" id="dateFin" name="dateFin" class="form-control" required>
-          </div>
-          
-          <div class="modal-footer">
-            <button type="submit" name="valider" class="btn btn-primary">Valider</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Les dates </h1>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    </div>
+                    <div class="modal-body">
+                    <form action="" method="post">
+                        <div class="mb-3">
+                          <label for="dateDebut" class="form-label">Date de début :</label>
+                          <input type="date" id="dateDebut" name="dateDebut" class="form-control" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                          <label for="dateFin" class="form-label">Date de fin :</label>
+                          <input type="date" id="dateFin" name="dateFin" class="form-control" required>
+                        </div>
+                        
+                        <div class="modal-footer">
+                          <button type="submit" name="valider" class="btn btn-primary">Valider</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0" id="example">
+                <table class=" align-items-center mb-0" id="example">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
@@ -81,27 +82,35 @@
                             <?php
                               echo (mb_substr($row["message"], 0, 4, 'UTF-8').'...'); // Affiche "Bonjour, je suis"
                             ?>
-                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal<?=$row["id"]?>">
-                              Lire ...
+
+                            
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<?=$row["id"]?>">
+                              Lire...
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal<?=$row["id"]?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
+                            <div class="modal fade" id="exampleModal<?=$row["id"]?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true" data-bs-scroll="true" style="overflow-y: scroll; overflow-x: hidden;">
+                              <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" style="overflow-y:scroll; overflow-x:hidden">
+                                <div class="modal-content modal-content-higher">
                                   <div class="modal-header">
                                     <h1 class="modal-title text-center fs-5" id="exampleModalLabel">Message du <?= $row["dateEnvoi"] ?> à <?= $row["mobile"] ?></h1>
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">X</button>
                                   </div>
                                   <div class="modal-body">
-                                  <?=$row["message"]?>"
+                                    
+                                    <p>
+                                      <?=$row["message"]?>
+                                    </p> 
                                   </div>
+                                  
+
                                   <div class="modal-footer">
                                     
                                   </div>
                                 </div>
                               </div>
                             </div>
+                            
                           </td>
                           <td class="align-middle text-center text-sm">
                             <span class="badge badge-sm
@@ -132,6 +141,7 @@
           </div>
         </div>
       </div>
+      
      
   <script src="assets/js/core/popper.min.js"></script>
   <script src="assets/js/core/bootstrap.min.js"></script>

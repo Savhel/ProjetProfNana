@@ -20,7 +20,6 @@ try {
     }
 
     
-
 } catch(PDOException $e) {
     die("Erreur lors de la connexion à la base de données : " . $e->getMessage());
 }

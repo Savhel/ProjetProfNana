@@ -18,7 +18,6 @@
     <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="./assets/img/favicon.png">
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   
@@ -37,6 +36,38 @@
         .modal-higher {
             z-index: 2000000; /* Assurez-vous que cela est supérieur au z-index de votre navbar */
         }
+        .pave {
+          position: fixed;
+          z-index: 1000;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: rgba(0,0,0,0.5); /* Semi-transparent */
+        }
+
+        .pave-content {
+          background-color: #fefefe;
+          margin: 15% auto;
+          padding: 20px;
+          border: 1px solid #888;
+          width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        #closePave {
+          color: #aaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+        }
+
+        #closePave:hover,
+        #closePave:focus {
+          color: black;
+          text-decoration: none;
+          cursor: pointer;
+        }
     </style>
 
 
@@ -53,10 +84,8 @@
 <!-- Material Icons -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 
-
-
-<link id="pagestyle" href="assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link id="pagestyle" href="assets/css/material-dashboard.css" rel="stylesheet" />
   </head>
 
 
@@ -93,7 +122,6 @@
                 <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
                   Pages
-                  <img src="./assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
                 </a>
                 <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
                   <div class="d-none d-lg-block">
@@ -146,7 +174,6 @@
                 <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="material-icons opacity-6 me-2 text-md">view_day</i>
                   Sections
-                  <img src="./assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuBlocks">
                   <div class="d-none d-lg-block">
@@ -157,7 +184,6 @@
                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Section 1</h6>
                 <span class="text-sm">Les tableaux</span>
               </div>
-              <img src="./assets/img/down-arrow.svg" alt="down-arrow" class="arrow">
             </div>
           </a>
           <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
@@ -177,7 +203,6 @@
                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">Navigation</h6>
                 <span class="text-sm">Voir les navigations</span>
               </div>
-              <img src="./assets/img/down-arrow.svg" alt="down-arrow" class="arrow">
             </div>
           </a>
           <div class="dropdown-menu mt-0 py-3 px-2 mt-3">
@@ -243,7 +268,6 @@
                 <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="material-icons opacity-6 me-2 text-md">article</i>
                   Documentation
-                  <img src="./assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-animation dropdown-md dropdown-md-responsive mt-0 mt-lg-3 p-3 border-radius-lg" aria-labelledby="dropdownMenuDocs">
                   <div class="d-none d-lg-block">
@@ -354,7 +378,7 @@
     
 
       
-          <div class="fixed-plugin">
+<div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
       <i class="material-icons py-2">settings</i>
     </a>
